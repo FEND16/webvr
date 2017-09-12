@@ -1,0 +1,123 @@
+<html>
+
+<head>
+  <title>A-FRAME</title>
+  <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <link rel="shortcut icon" href="https://aframe.io/images/aframe-logo-192.png" type="image/x-icon">
+</head>
+
+<body>
+  <a-scene>
+    <!-- Load assets -->
+    <a-assets>
+      <a-asset-item id="nyan-obj" src="models/nyancat.obj"></a-asset-item>
+      <a-asset-item id="nyan-mtl" src="models/nyancat.mtl"></a-asset-item>
+      <audio id="roar" src="sounds/elephant.mp3"></audio>
+      <audio id="nyan" src="sounds/nyan.ogg"></audio> <!-- Well, we could use it -->
+      <img id="cat" src="breadcat.gif">
+    </a-assets>
+
+    <!-- Nyan cat -->
+    <a-entity position="-10 8 5" rotation="0 0 0" obj-model="obj: #nyan-obj; mtl: #nyan-mtl">
+
+      <!-- Buggy animation, lets forget it -->
+
+      <!-- <a-animation attribute="position"
+            dur="1000"
+            from="-20 10 10"
+            to="-20 8 10"
+            fill="forwards"
+            repeat="indefinite"></a-animation>
+            <a-animation attribute="position"
+              dur="1000"
+              from="-20 8 10"
+              begin="1000"
+              to="-20 10 10"
+              fill="forwards"
+              repeat="indefinite"></a-animation> -->
+
+    </a-entity>
+
+
+    <a-text value="Wow, what is going on?" position="-20 2 -10" width="50"></a-text>
+
+    <!--Repetitive code but whatever, this aint science -->
+    <!-- Left to right flying elephant -->
+    <a-sphere id="elephant" color="#ec4570" radius="0.8" position="-100 8 -15" rotation="0 180 0">
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 0.5"></a-circle>
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 -0.5"></a-circle>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 -0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 -0.4"></a-sphere>
+      <a-cylinder color="#ec4570" height="1" radius="0.15" position="-0.5 0.12 0" rotation="0 0 120"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.05 -0.13 0" rotation="0 0 90"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.29 -0.09 0" rotation="0 0 70"></a-cylinder>></a-cylinder>
+      <a-animation attribute="position" dur="6000" fill="forwards" to="100 10 -15" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <!-- crash test dummy elephant -->
+    <a-sphere id="elephant" color="#ec4570" radius="0.8" position="0 1 -50" rotation="0 90 0" material="opacity:1">
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 0.5"></a-circle>
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 -0.5"></a-circle>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 -0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 -0.4"></a-sphere>
+      <a-cylinder color="#ec4570" height="1" radius="0.15" position="-0.5 0.12 0" rotation="0 0 120"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.05 -0.13 0" rotation="0 0 90"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.29 -0.09 0" rotation="0 0 70"></a-cylinder>></a-cylinder>
+      <a-animation attribute="position" dur="4000" fill="forwards" to="2 1 20" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <!-- Left to right diving elephant -->
+    <a-sphere id="elephant" color="#ec4570" radius="0.8" position="-30 20 -10" rotation="0 180 0">
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 0.5"></a-circle>
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 -0.5"></a-circle>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 -0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 -0.4"></a-sphere>
+      <a-cylinder color="#ec4570" height="1" radius="0.15" position="-0.5 0.12 0" rotation="0 0 120"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.05 -0.13 0" rotation="0 0 90"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.29 -0.09 0" rotation="0 0 70"></a-cylinder>></a-cylinder>
+      <a-animation attribute="position" dur="9000" fill="forwards" to="60 -10 -20" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+
+    <!-- Noisy Elephant! -->
+    <a-sphere id="elephant" color="#ec4570" radius="0.8" position="5 0.8 0" rotation="0 20 0" sound="on: click; src: #roar">
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 0.5"></a-circle>
+      <a-circle color="#f1e455" rotation="0 -90 0 " radius="0.4" position="-0.5 0.5 -0.5"></a-circle>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="0.5 -0.5 -0.4"></a-sphere>
+      <a-sphere radius="0.2" color="#ec4570" position="-0.5 -0.5 -0.4"></a-sphere>
+      <a-cylinder color="#ec4570" height="1" radius="0.15" position="-0.5 0.12 0" rotation="0 0 120"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.05 -0.13 0" rotation="0 0 90"></a-cylinder>></a-cylinder>
+      <a-cylinder color="#ec4570" height="0.3" radius="0.15" position="-1.29 -0.09 0" rotation="0 0 70"></a-cylinder>></a-cylinder>
+    </a-sphere>
+
+
+    <!--gif box! -->
+    <a-entity geometry="primitive:box;" material="shader:gif;" position="0 2 2" rotation="0 0 0" event-set__enter="_event: mouseenter; material.shader:gif; material.src:url(tenor.gif);"
+      event-set__leave="_event: mouseleave; color: #4CC3D9; material.src: ''">
+      <a-animation attribute="rotation" dur="4000" fill="forwards" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+    </a-entity>
+
+    <!-- ground -->
+    <a-plane color="#47b784" height="50" width="40" rotation="-90 0 0"></a-plane>
+
+    <!-- sky -->
+    <a-sky color="#83E5FF"> </a-sky>
+
+    <!-- Black cursor in middle -->
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
+  </a-scene>
+</body>
+
+</html>
